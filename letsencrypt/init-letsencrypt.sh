@@ -1,8 +1,8 @@
 #!/bin/bash
 
-domains=(thalasoft.com)
+domains=(thalasoft.com www.thalasoft.com)
 rsa_key_size=4096
-data_path="~/dev/docker/projects/common/volumes/letsencrypt/certbot"
+data_path="/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot"
 email="mittiprovence@yahoo.se" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
