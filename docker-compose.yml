@@ -1,0 +1,45 @@
+version: "3.5"
+services:
+  mysql:
+    image: thalasoft.com:5000/mariadb:10.3.7
+    networks:
+      - common      
+    hostname: mysql
+    volumes:
+      - "~/dev/docker/projects/common/volumes/database/data:/usr/bin/mariadb/install/data"
+      - "~/dev/docker/projects/common/volumes/logs:/usr/bin/mariadb/install/logs"
+    environment:
+      HOST_USER_ID: ${CURRENT_UID}
+      HOST_GROUP_ID: ${CURRENT_GID}
+    secrets:
+      - DB_ROOT_PASSWORD      
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+        window: 10s
+    healthcheck:
+      test: /usr/bin/mariadb/db-health-check.sh
+      interval: 5s
+      timeout: 10s
+      retries: 3      
+  redis:
+    image: thalasoft.com:5000/redis:3.0.7
+    networks:
+      - common
+    volumes:
+      - "~/dev/docker/projects/common/volumes/logs:/usr/bin/redis/install/var/logs"
+  logrotate:
+    image: thalasoft.com:5000/logrotate
+    networks:
+      - common
+    volumes:
+      - "~/dev/docker/projects/common/volumes/logs:/usr/bin/logrotate/logs"
+networks:
+  common:  
+    name: common
+secrets:
+  DB_ROOT_PASSWORD:
+    external: true  

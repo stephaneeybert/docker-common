@@ -1,0 +1,6 @@
+version: "3.5"
+services:
+  letsencrypt-create:
+    image: thalasoft.com:5000/letsencrypt
+    volumes:
+      - "~/dev/docker/projects/learnintouch/volumes/letsencrypt:/etc/letsencrypt"
