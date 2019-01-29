@@ -71,5 +71,11 @@ docker-compose run --rm --entrypoint "\
     --force-renewal" certbot
 echo
 
+sudo chown -R stephane $data_path
+cp $data_path/conf/archive/$domains/cert1.pem $data_path/conf/live/$domains/current-cert.pem
+cp $data_path/conf/archive/$domains/chain1.pem $data_path/conf/live/$domains/current-chain.pem
+cp $data_path/conf/archive/$domains/fullchain1.pem $data_path/conf/live/$domains/current-fullchain.pem
+cp $data_path/conf/archive/$domains/privkey1.pem $data_path/conf/live/$domains/current-privkey.pem
+
 echo "### Reloading nginx ..."
 docker-compose exec nginx nginx -s reload
