@@ -3,26 +3,42 @@ Starting the service in production
 sudo ./init-letsencrypt.sh
 ```
 
-Set the staging value to 1 if tetsting the installation
+Configuration of the `init-letsencrypt.sh` file
 ```  
-vi init-letsencrypt.sh
+domains=(thalasoft.com www.thalasoft.com)
+rsa_key_size=4096
+data_path="/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot"
+email="mittiprovence@yahoo.se"
 staging=0
 ```  
 
-The thalasoft.com certificates are created under the directory
+The thalasoft.com certificates generated in the directory
+```  
+~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/archive/thalasoft.com
+archive/
+└── thalasoft.com
+    ├── cert1.pem
+    ├── chain1.pem
+    ├── fullchain1.pem
+    └── privkey1.pem
+```  
+are to be stripped of their index number and copied under the directory
 ```  
 ~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com
+live/
+├── README
+└── thalasoft.com
+    ├── cert.pem
+    ├── chain.pem
+    ├── fullchain.pem
+    ├── privkey.pem
+    └── README
 ```  
 An Apache virtual host configuration example
 ```  
-<VirtualHost *:443>
-  ServerName www.thalasoft.com
-  DocumentRoot /usr/bin/learnintouch/www/thalasoft.com
-  SSLEngine on
   SSLCertificateFile "/usr/bin/learnintouch/letsencrypt/cert.pem"
   SSLCertificateKeyFile "/usr/bin/learnintouch/letsencrypt/privkey.pem"
-  SSLCertificateChainFile "/usr/bin/learnintouch/letsencrypt/fullchain.pem"
-</VirtualHost>
+  SSLCertificateChainFile "/usr/bin/learnintouch/letsencrypt/chain.pem"
 ```  
 
 See https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
