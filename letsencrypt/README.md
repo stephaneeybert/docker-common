@@ -22,16 +22,16 @@ archive/
     ├── fullchain1.pem
     └── privkey1.pem
 ```  
-are to be stripped of their index number and copied under the directory
+are to be copied under the directory using the following filenames
 ```  
 ~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com
 live/
 ├── README
 └── thalasoft.com
-    ├── cert.pem
-    ├── chain.pem
-    ├── fullchain.pem
-    ├── privkey.pem
+    ├── current-cert.pem
+    ├── current-chain.pem
+    ├── current-fullchain.pem
+    ├── current-privkey.pem
     └── README
 ```  
 An Apache virtual host configuration example
