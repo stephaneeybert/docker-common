@@ -1,6 +1,22 @@
-version: "3.5"
+version: '3.5'
 services:
-  letsencrypt-create:
-    image: thalasoft.com:5000/letsencrypt
+  nginx:
+    image: nginx:1.15-alpine
+    restart: unless-stopped
     volumes:
-      - "~/dev/docker/projects/learnintouch/volumes/letsencrypt:/etc/letsencrypt"
+      - "~/dev/docker/projects/common/letsencrypt/nginx:/etc/nginx/conf.d"
+      - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf:/etc/letsencrypt"
+      - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/www:/var/www/certbot"
+      - "~/dev/docker/projects/common/volumes/letsencrypt/nginx:/var/www/nginx"        
+    ports:
+      - "80:80"
+      - "443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf:/etc/letsencrypt"
+      - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/www:/var/www/certbot"
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
