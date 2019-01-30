@@ -5,7 +5,7 @@ sudo ./init-letsencrypt.sh
 
 Configuration of the `init-letsencrypt.sh` file
 ```  
-domains=(thalasoft.com www.thalasoft.com)
+domains=(thalasoft.com www.thalasoft.com ngzero.thalasoft.com)
 rsa_key_size=4096
 data_path="/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot"
 email="mittiprovence@yahoo.se"
