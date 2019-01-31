@@ -13,7 +13,7 @@ staging=0
 ```  
 Deploying the source code in production
 ```  
-scp init-letsencrypt.sh stephane@165.227.161.233:/home/stephane/dev/docker/projects/common/letsencrypt/
+scp init-letsencrypt.sh stephane@...:/home/stephane/dev/docker/projects/common/letsencrypt/
 ```  
 
 The thalasoft.com certificates generated in the directory
@@ -50,7 +50,7 @@ cp -f volumes/letsencrypt/certbot/conf/archive/thalasoft.com/fullchain1.pem volu
 using the commands on the local machine
 ```  
 cd /home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com
-scp stephane@165.227.161.233:/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-* .
+scp stephane@...:/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-* .
 ```  
 
 An Apache virtual host configuration example
