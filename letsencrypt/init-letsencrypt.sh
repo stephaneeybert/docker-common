@@ -1,6 +1,6 @@
 #!/bin/bash
 
-domains=(thalasoft.com www.thalasoft.com folkuniversitet.thalasoft.com ngzero.thalasoft.com)
+domains=(thalasoft.com www.thalasoft.com dev.thalasoft.com folkuniversitet.thalasoft.com ngzero.thalasoft.com)
 rsa_key_size=4096
 data_path="/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot"
 email="mittiprovence@yahoo.se" # Adding a valid address is strongly recommended
