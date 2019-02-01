@@ -46,6 +46,7 @@ sudo chown -R stephane volumes/letsencrypt/certbot/conf/live/thalasoft.com/;
 \cp -f volumes/letsencrypt/certbot/conf/archive/thalasoft.com/privkey1.pem volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-privkey.pem;
 \cp -f volumes/letsencrypt/certbot/conf/archive/thalasoft.com/chain1.pem volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-chain.pem;
 \cp -f volumes/letsencrypt/certbot/conf/archive/thalasoft.com/fullchain1.pem volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-fullchain.pem;
+sudo chown -R stephane volumes/letsencrypt/certbot/conf/live/thalasoft.com/
 ```  
 using the commands on the local machine
 ```  
