@@ -1,7 +1,6 @@
-FROM ubuntu:16.04
+FROM stephaneeybert/ubuntuos:18.04
 
 RUN apt-get update \
-  && apt-get install -y vim \
   && apt-get install -y logrotate
 
 WORKDIR /etc/logrotate.d/
