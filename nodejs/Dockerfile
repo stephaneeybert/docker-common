@@ -4,7 +4,8 @@ RUN apt-get update \
   && apt-get purge nodejs
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash \
-  && apt-get install -y nodejs
+  && apt-get install -y nodejs \
+  && apt-get install -y npm
 
 # TODO run the service not as root (and the same for the other services)
 #RUN useradd --user-group --create-home --shell /bin/false stephane
