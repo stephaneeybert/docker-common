@@ -1,13 +1,13 @@
 version: "3.5"
 services:
   mysql:
-    image: thalasoft.com:5000/mariadb:10.3.7
+    image: thalasoft.com:5000/mariadb:10.3.12
     networks:
       - common      
     hostname: mysql
     volumes:
-      - "~/dev/docker/projects/common/volumes/database/data:/usr/bin/mariadb/install/data"
-      - "~/dev/docker/projects/common/volumes/logs:/usr/bin/mariadb/install/logs"
+      - "~/dev/docker/projects/common/volumes/database/data:/usr/local/mariadb/install/data"
+      - "~/dev/docker/projects/common/volumes/logs:/usr/local/mariadb/install/logs"
     environment:
       HOST_USER_ID: ${CURRENT_UID}
       HOST_GROUP_ID: ${CURRENT_GID}
@@ -21,8 +21,8 @@ services:
         max_attempts: 3
         window: 10s
     healthcheck:
-      test: /usr/bin/mariadb/db-health-check.sh
-      interval: 5s
+      test: /usr/local/mariadb/db-health-check.sh
+      interval: 15s
       timeout: 10s
       retries: 3      
   redis:
@@ -30,13 +30,13 @@ services:
     networks:
       - common
     volumes:
-      - "~/dev/docker/projects/common/volumes/logs:/usr/bin/redis/install/var/logs"
+      - "~/dev/docker/projects/common/volumes/logs:/usr/local/redis/install/var/logs"
   logrotate:
     image: thalasoft.com:5000/logrotate
     networks:
       - common
     volumes:
-      - "~/dev/docker/projects/common/volumes/logs:/usr/bin/logrotate/logs"
+      - "~/dev/docker/projects/common/volumes/logs:/usr/local/logrotate/logs"
 networks:
   common:  
     name: common

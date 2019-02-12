@@ -56,9 +56,9 @@ scp stephane@...:/home/stephane/dev/docker/projects/common/volumes/letsencrypt/c
 
 An Apache virtual host configuration example
 ```  
-  SSLCertificateFile "/usr/bin/learnintouch/letsencrypt/current-cert.pem"
-  SSLCertificateKeyFile "/usr/bin/learnintouch/letsencrypt/current-privkey.pem"
-  SSLCertificateChainFile "/usr/bin/learnintouch/letsencrypt/current-chain.pem"
+  SSLCertificateFile "/usr/local/learnintouch/letsencrypt/current-cert.pem"
+  SSLCertificateKeyFile "/usr/local/learnintouch/letsencrypt/current-privkey.pem"
+  SSLCertificateChainFile "/usr/local/learnintouch/letsencrypt/current-chain.pem"
 ```  
 
 See https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
