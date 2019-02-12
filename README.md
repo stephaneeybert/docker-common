@@ -21,3 +21,8 @@ docker pull thalasoft.com:5000/redis:3.0.7
 docker pull thalasoft.com:5000/mariadb:10.3.12
 ```
 
+Create some log files
+```
+touch volumes/logs/redis_6379.log
+touch volumes/logs/nodejs.log
+```
