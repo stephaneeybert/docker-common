@@ -3,7 +3,7 @@ services:
   mysql:
     image: thalasoft.com:5000/mariadb:10.3.12
     networks:
-      - common      
+      common:
     hostname: mysql
     volumes:
       - "~/dev/docker/projects/common/volumes/database/data:/usr/local/mariadb/install/data"
@@ -28,13 +28,13 @@ services:
   redis:
     image: thalasoft.com:5000/redis:3.0.7
     networks:
-      - common
+      common:
     volumes:
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/redis/install/var/logs"
   logrotate:
     image: thalasoft.com:5000/logrotate
     networks:
-      - common
+      common:
     volumes:
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/logrotate/logs"
 networks:
