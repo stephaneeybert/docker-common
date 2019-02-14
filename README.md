@@ -8,7 +8,7 @@ Starting the common services in production
 docker stack deploy --compose-file docker-compose.yml common
 ```
 
-Stoppin the common services
+Stopping the common services
 ```  
 docker stack rm common
 ```
