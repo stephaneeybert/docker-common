@@ -136,6 +136,8 @@ RUN chmod a+x /usr/local/php/scripts/phpize \
   && make install \
   && make clean \
   && ls /usr/local/php/install/lib/php/extensions/no-debug-zts-20180731/redis.so
+# php 5 && ls /usr/local/php/install/lib/php/extensions/no-debug-zts-20131226/redis.so
+# php 7 && ls /usr/local/php/install/lib/php/extensions/no-debug-zts-20180731/redis.so
 
 ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
 
