@@ -38,6 +38,13 @@ live/
     ├── current-privkey.pem
     └── README
 ```  
+
+using the commands on the local machine
+```  
+cd /home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com;
+scp stephane@...:/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-* .
+```  
+
 using the commands on the remote server
 ```  
 cd /home/stephane/dev/docker/projects/common;
@@ -47,11 +54,6 @@ sudo chown -R stephane volumes/letsencrypt/certbot/conf/live/thalasoft.com/;
 \cp -f volumes/letsencrypt/certbot/conf/archive/thalasoft.com/chain1.pem volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-chain.pem;
 \cp -f volumes/letsencrypt/certbot/conf/archive/thalasoft.com/fullchain1.pem volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-fullchain.pem;
 sudo chown -R stephane volumes/letsencrypt/certbot/conf/live/thalasoft.com/
-```  
-using the commands on the local machine
-```  
-cd /home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com;
-scp stephane@...:/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-* .
 ```  
 
 An Apache virtual host configuration example
