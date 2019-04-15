@@ -111,6 +111,7 @@ RUN ./configure \
   --with-openssl \
   --with-curl \
   --enable-intl \
+  --enable-bcmath \
   && make \
   && make install \
   && make clean
