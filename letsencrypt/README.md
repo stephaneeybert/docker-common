@@ -56,12 +56,6 @@ live/
     └── README
 ```  
 
-using the commands on the local machine
-```  
-cd /home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com;
-scp stephane@...:/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-* .
-```  
-
 using the commands on the remote server
 ```  
 cd /home/stephane/dev/docker/projects/common;
@@ -72,4 +66,13 @@ sudo chown -R stephane volumes/letsencrypt/certbot/conf/live/thalasoft.com/;
 \cp -f volumes/letsencrypt/certbot/conf/archive/thalasoft.com/fullchain1.pem volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-fullchain.pem;
 sudo chown -R stephane volumes/letsencrypt/certbot/conf/live/thalasoft.com/
 ```  
+The script has already done the above copying of the certificates. There is no need to manually type in the above copy commands.
 
+Copy the certificates from the remote server to the local machine
+```  
+cd /home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com;
+scp stephane@...:/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-* .
+```  
+
+Import the certificates in the keystore on the local machine
+See how to enable HTTPS for a domain name in the dev/help/ssl.help.txt file
