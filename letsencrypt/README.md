@@ -74,5 +74,5 @@ cd /home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/li
 scp stephane@...:/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-* .
 ```  
 
-Import the certificates in the keystore on the local machine
-See how to enable HTTPS for a domain name in the dev/help/ssl.help.txt file
+Import the certificates in the keystore on the local machine  
+See how to enable HTTPS for a domain name in the ssh help file
