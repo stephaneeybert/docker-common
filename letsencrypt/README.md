@@ -1,20 +1,37 @@
-Starting the service in production
-```  
-sudo ./init-letsencrypt.sh
-```
-
 Configuration of the `init-letsencrypt.sh` file
 ```  
-domains=(thalasoft.com www.thalasoft.com ngzero.thalasoft.com)
+domains=(thalasoft.com www.thalasoft.com dev.thalasoft.com folkuniversitet.thalasoft.com ngzero.thalasoft.com)
 rsa_key_size=4096
 data_path="/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot"
 email="mittiprovence@yahoo.se"
 staging=0
 ```  
+
 Deploying the source code in production
 ```  
 scp init-letsencrypt.sh stephane@...:/home/stephane/dev/docker/projects/common/letsencrypt/
 ```  
+
+An Apache virtual host configuration example
+```  
+  SSLCertificateFile "/usr/local/learnintouch/letsencrypt/current-cert.pem"
+  SSLCertificateKeyFile "/usr/local/learnintouch/letsencrypt/current-privkey.pem"
+  SSLCertificateChainFile "/usr/local/learnintouch/letsencrypt/current-chain.pem"
+```  
+
+See https://github.com/wmnnd/nginx-certbot/
+
+
+Obtaining new certificates
+
+Run the script in production
+```  
+ssh stephane@165.227.161.233
+cd dev/docker/projects/common/letsencrypt/
+sudo ./init-letsencrypt.sh
+```
+The domains list includes the local dev subdomain. The script can be run in production only.
+After it is run, the generated certificates are copied back from the production to the local dev.
 
 The thalasoft.com certificates generated in the directory
 ```  
@@ -55,13 +72,4 @@ sudo chown -R stephane volumes/letsencrypt/certbot/conf/live/thalasoft.com/;
 \cp -f volumes/letsencrypt/certbot/conf/archive/thalasoft.com/fullchain1.pem volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-fullchain.pem;
 sudo chown -R stephane volumes/letsencrypt/certbot/conf/live/thalasoft.com/
 ```  
-
-An Apache virtual host configuration example
-```  
-  SSLCertificateFile "/usr/local/learnintouch/letsencrypt/current-cert.pem"
-  SSLCertificateKeyFile "/usr/local/learnintouch/letsencrypt/current-privkey.pem"
-  SSLCertificateChainFile "/usr/local/learnintouch/letsencrypt/current-chain.pem"
-```  
-
-See https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
 
