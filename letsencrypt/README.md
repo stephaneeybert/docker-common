@@ -26,7 +26,7 @@ Obtaining new certificates
 
 Run the script in production
 ```  
-ssh stephane@165.227.161.233
+ssh stephane@...
 cd dev/docker/projects/common/letsencrypt/
 sudo ./init-letsencrypt.sh
 ```
