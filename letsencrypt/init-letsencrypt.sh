@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 domains=(thalasoft.com www.thalasoft.com dev.thalasoft.com folkuniversitet.thalasoft.com ngzero.thalasoft.com)
 rsa_key_size=4096
