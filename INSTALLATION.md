@@ -17,7 +17,7 @@ cd redis; ./build.sh; cd ..;
 cd logrotate; ./build.sh; cd ..;
 ```
 
-Copy the compose file
+Copy the some files
 ```
 scp ~/dev/docker/projects/common/docker-compose.yml stephane@thalasoft.com:~/dev/docker/projects/common
 scp ~/dev/docker/projects/common/docker-secrets.sh stephane@thalasoft.com:~/dev/docker/projects/common
