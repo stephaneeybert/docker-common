@@ -32,4 +32,4 @@ scp stephane@thalasoft.com:/home/stephane/dev/docker/projects/common/volumes/let
 ```  
 
 Import the certificates in the keystore on the local machine  
-For this, see how to enable HTTPS for a domain name in the ssh help file
+For this, see 'Enabling HTTPS on a domain name' in the ssh help file
