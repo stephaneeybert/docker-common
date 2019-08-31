@@ -7,11 +7,6 @@ email="mittiprovence@yahoo.se"
 staging=0
 ```  
 
-Deploying the source code in production
-```  
-scp init-letsencrypt.sh stephane@...:/home/stephane/dev/docker/projects/common/letsencrypt/
-```  
-
 An Apache virtual host configuration example
 ```  
   SSLCertificateFile "/usr/local/learnintouch/letsencrypt/current-cert.pem"
@@ -21,19 +16,10 @@ An Apache virtual host configuration example
 
 See https://github.com/wmnnd/nginx-certbot/
 
-
-Obtaining new certificates
-
-Run the script in production
-```  
-ssh stephane@...
-cd dev/docker/projects/common/letsencrypt/
-sudo ./init-letsencrypt.sh
-```
 The domains list includes the local dev subdomain. The script can be run in production only.
 After it is run, the generated certificates are copied back from the production to the local dev.
 
-The thalasoft.com certificates generated in the directory
+The thalasoft.com certificates are generated in the directory
 ```  
 ~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/archive/thalasoft.com
 archive/
@@ -68,11 +54,6 @@ sudo chown -R stephane volumes/letsencrypt/certbot/conf/live/thalasoft.com/
 ```  
 The script has already done the above copying of the certificates. There is no need to manually type in the above copy commands.
 
-Copy the certificates from the remote server to the local machine
-```  
-cd /home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com;
-scp stephane@...:/home/stephane/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com/current-* .
-```  
-
 Import the certificates in the keystore on the local machine  
+
 See how to enable HTTPS for a domain name in the ssh help file
