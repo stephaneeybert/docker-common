@@ -8,6 +8,7 @@ services:
       - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf:/etc/letsencrypt"
       - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/www:/var/www/certbot"
       - "~/dev/docker/projects/common/volumes/letsencrypt/nginx:/var/www/nginx"        
+      - "~/dev/docker/projects/common/volumes/logs:/var/log/letsencrypt"
     ports:
       - "80:80"
       - "443:443"

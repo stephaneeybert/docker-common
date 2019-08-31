@@ -1,3 +1,5 @@
+As the LetsEncrypt service only works on the default port 80 the port needs to be opened on the firewall
+
 Configuration of the `init-letsencrypt.sh` file
 ```  
 domains=(thalasoft.com www.thalasoft.com dev.thalasoft.com folkuniversitet.thalasoft.com ngzero.thalasoft.com)

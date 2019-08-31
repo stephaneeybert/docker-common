@@ -2,6 +2,16 @@ Installation
 
 On the remote
 
+Open some ports on the firewall
+
+Watch some logs in terminals
+```
+watch docker ps
+watch docker stack ps --no-trunc common
+watch docker stack ps --no-trunc www_thalasoft
+docker service logs -f www_thalasoft_www
+```
+
 Create the project directory
 ```
 mkdir -p ~/dev/docker/projects/common;
@@ -36,6 +46,7 @@ Create some log files
 ```
 touch ~/dev/docker/projects/common/volumes/logs/redis_6379.log;
 touch ~/dev/docker/projects/common/volumes/logs/nodejs.log;
+touch ~/dev/docker/projects/common/volumes/logs/letsencrypt.log;
 ```
 
 Pull the images
