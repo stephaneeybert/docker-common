@@ -8,8 +8,10 @@ Watch some logs in terminals
 ```
 watch docker ps
 watch docker stack ps --no-trunc common
+watch docker stack ps --no-trunc learnintouch
 watch docker stack ps --no-trunc www_thalasoft
-docker service logs -f www_thalasoft_www
+docker service logs -f learnintouch_learnintouch
+docker service logs -f www_thalasoft_thalasoft
 ```
 
 Create the project directory
