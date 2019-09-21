@@ -83,16 +83,16 @@ RUN apt-get update \
   re2c libzip-dev
 
 WORKDIR /usr/local/
-COPY php-7.3.2.tar.gz /usr/local/
-RUN gzip -d php-7.3.2.tar.gz \
-  && tar -xvf php-7.3.2.tar \
-  && ln -s php-7.3.2 php
+COPY php-7.3.9.tar.gz /usr/local/
+RUN gzip -d php-7.3.9.tar.gz \
+  && tar -xvf php-7.3.9.tar \
+  && ln -s php-7.3.9 php
 
 WORKDIR /usr/local/php/
 RUN ./configure \
   --prefix=/usr/local/php/install \
   --with-apxs2=/usr/local/apache/bin/apxs \
-  --with-config-file-path=/usr/local/php-7.3.2/ \
+  --with-config-file-path=/usr/local/php-7.3.9/ \
   --enable-libgcc \
   --with-mysqli=mysqlnd \
   --with-pdo-mysql=mysqlnd \
@@ -142,10 +142,10 @@ RUN chmod a+x /usr/local/php/scripts/phpize \
 
 ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
 
-# Build the container: docker build -t stephaneeybert/php:7.3.2 .
-# Rename the image: docker tag stephaneeybert/php:7.3.2 thalasoft.com:5000/php:7.3.2
-# Push the image: docker push thalasoft.com:5000/php:7.3.2
-# Run the container: docker run -d -p 81:80 --name php stephaneeybert/php:7.3.2
+# Build the container: docker build -t stephaneeybert/php:7.3.9 .
+# Rename the image: docker tag stephaneeybert/php:7.3.9 thalasoft.com:5000/php:7.3.9
+# Push the image: docker push thalasoft.com:5000/php:7.3.9
+# Run the container: docker run -d -p 81:80 --name php stephaneeybert/php:7.3.9
 # Check that the port is open: nmap -p 81 localhost
 # Open a shell in the container: docker exec -it php bash
 
