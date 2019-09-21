@@ -4,11 +4,11 @@ services:
     image: nginx:1.15-alpine
     restart: unless-stopped
     volumes:
-      - "~/dev/docker/projects/common/letsencrypt/nginx:/etc/nginx/conf.d"
+      - "~/dev/docker/projects/common/volumes/letsencrypt/nginx:/etc/nginx/conf.d"
       - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf:/etc/letsencrypt"
       - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/www:/var/www/certbot"
       - "~/dev/docker/projects/common/volumes/letsencrypt/nginx:/var/www/nginx"        
-      - "~/dev/docker/projects/common/volumes/logs:/var/log/letsencrypt"
+      - "~/dev/docker/projects/common/volumes/logs:/var/log/nginx"
     ports:
       - "80:80"
       - "443:443"
@@ -19,5 +19,6 @@ services:
     volumes:
       - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf:/etc/letsencrypt"
       - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/www:/var/www/certbot"
+      - "~/dev/docker/projects/common/volumes/logs:/var/log/letsencrypt"
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
