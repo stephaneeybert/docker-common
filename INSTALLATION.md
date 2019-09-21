@@ -68,6 +68,7 @@ Read and follow all the INSTALLATION.md files of the project
 
 Start the services
 ```  
+cd ~/dev/docker/projects/common
 docker stack deploy --compose-file docker-compose.yml common
 ```
 
