@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # Expand the secrets
 export DB_ROOT_PASSWORD={{DOCKER-SECRET:DB_ROOT_PASSWORD}}
