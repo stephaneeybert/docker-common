@@ -27,6 +27,7 @@ cd ~/dev/docker/projects/common;
 cd mariadb; ./build.sh; cd ..;
 cd redis; ./build.sh; cd ..;
 cd logrotate; ./build.sh; cd ..;
+cd fail2ban; ./build.sh; cd ..;
 ```
 
 Copy the some files
@@ -56,6 +57,7 @@ Pull the images
 docker pull thalasoft.com:5000/mariadb:10.3.12;
 docker pull thalasoft.com:5000/redis:3.0.7;
 docker pull thalasoft.com:5000/logrotate;
+docker pull thalasoft.com:5000/fail2ban;
 ```
 
 Create the secrets
