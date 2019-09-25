@@ -37,12 +37,6 @@ services:
       common:
     volumes:
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/logrotate/logs"
-  fail2ban:
-    image: thalasoft.com:5000/fail2ban
-    networks:
-      common:
-    volumes:
-      - "~/dev/docker/projects/common/volumes/logs:/var/log"
 networks:
   common:  
     name: common
