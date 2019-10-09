@@ -16,7 +16,7 @@ docker service logs -f learnintouch_learnintouch
 docker service logs -f www_thalasoft_thalasoft
 docker service logs -f user-rest-install_user-rest-install
 docker service logs -f user-rest_user-rest
-docker service logs -f ngzero_ngzero
+docker service logs -f musicng_musicng
 ```
 
 Create the project directory

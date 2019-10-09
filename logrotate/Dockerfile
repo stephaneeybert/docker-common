@@ -11,7 +11,7 @@ COPY httpd.logrotate.conf \
   nodejs.logrotate.conf \
   user-rest.logrotate.conf \
   php_error_log.logrotate.conf \
-  ngzero.logrotate.conf \
+  musicng.logrotate.conf \
   letsencrypt.logrotate.conf \
   /etc/logrotate.d/
 
