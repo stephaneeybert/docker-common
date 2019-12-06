@@ -37,6 +37,9 @@ services:
       common:
     volumes:
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/logrotate/logs"
+    environment:
+      HOST_USER_ID: ${CURRENT_UID}
+      HOST_GROUP_ID: ${CURRENT_GID}
 networks:
   common:  
     name: common
