@@ -1,8 +1,6 @@
 FROM stephaneeybert/ubuntuos:18.04
 
 
-# Installing the mysql client
-
 RUN apt-get install -y libncurses-dev
 
 COPY mariadb-10.3.12.tar.gz /usr/local/
