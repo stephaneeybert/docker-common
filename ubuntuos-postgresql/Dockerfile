@@ -1,8 +1,6 @@
 FROM stephaneeybert/ubuntuos:18.04
 
 
-# Installing the mysql client
-
 RUN apt-get install -y libreadline-dev
 
 COPY postgresql-12.1.tar.gz /usr/local/
