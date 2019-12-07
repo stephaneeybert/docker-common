@@ -1,8 +1,6 @@
 FROM stephaneeybert/ubuntuos:18.04
 
 
-# Installing the mysql client
-
 RUN apt-get install -y libncurses-dev
 
 COPY mysql-8.0.15.tar.gz /usr/local/
