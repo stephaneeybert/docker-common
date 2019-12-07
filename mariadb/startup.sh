@@ -11,7 +11,8 @@ source /usr/local/mariadb/expand-secrets.sh
 if [ ! -f /usr/local/mariadb/install/data/ibdata1 ]; then
   # Do the post installation
   chmod 755 /usr/local/mariadb/install/scripts/mysql_install_db
-  sleep 1 # Needed to avoid running the script when this mysql_install_db file has not yet been released by the permissions change
+  # Needed to avoid running the next command before the previous file has been released by the permissions change
+  sleep 1
   /usr/local/mariadb/install/scripts/mysql_install_db \
     --no-defaults \
     --explicit_defaults_for_timestamp \
