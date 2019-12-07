@@ -1,5 +1,8 @@
 #!/bin/bash
 
+chown -R $HOST_USER_ID /usr/local/mariadb/install/data
+chgrp -R $HOST_GROUP_ID /usr/local/mariadb/install/data
+
 # Expand the secrets
 export DB_ROOT_PASSWORD={{DOCKER-SECRET:DB_ROOT_PASSWORD}}
 source /usr/local/mariadb/expand-secrets.sh
@@ -28,14 +31,8 @@ if [ ! -f /usr/local/mariadb/install/data/ibdata1 ]; then
 
   /usr/local/mariadb/install/bin/mysql -u root -v -e "use mysql; delete from user where User = ''; flush privileges;"
 
-  chown -R $HOST_USER_ID /usr/local/mariadb/install/data
-  chgrp -R $HOST_GROUP_ID /usr/local/mariadb/install/data
-
   # tail -f /etc/hosts
 else
-  chown -R $HOST_USER_ID /usr/local/mariadb/install/data
-  chgrp -R $HOST_GROUP_ID /usr/local/mariadb/install/data
-
   # Avoid having to provide the user password on the command line
   export MYSQL_PWD=$DB_ROOT_PASSWORD
 
