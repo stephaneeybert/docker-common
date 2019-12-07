@@ -15,8 +15,5 @@ RUN ./configure \
   --without-zlib \
   && make \
   && make install \
-  && make clean \
-  && adduser postgresql --gecos '' --disabled-login \
-  && mkdir /usr/local/postgresql/install/data \
-  && chown postgresql /usr/local/postgresql/install/data
+  && make clean
 
