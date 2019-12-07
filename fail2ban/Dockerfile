@@ -15,7 +15,7 @@ WORKDIR /etc/fail2ban/
 RUN mkdir /usr/local/fail2ban/
 
 COPY startup.sh /etc/fail2ban/startup.sh
-RUN chmod 755 /etc/fail2ban/startup.sh
+RUN chmod 744 /etc/fail2ban/startup.sh
 
 COPY jail.local /etc/fail2ban/
 COPY sshd.conf learnintouch-admin.fail2ban.conf /etc/fail2ban/filter.d/

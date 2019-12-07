@@ -11,7 +11,7 @@ source /usr/local/mariadb/expand-secrets.sh
 # Check if the database server has not yet been fully installed
 if [ ! -f /usr/local/mariadb/install/data/ibdata1 ]; then
   # Do the post installation
-  chmod 755 /usr/local/mariadb/install/scripts/mysql_install_db
+  chmod 744 /usr/local/mariadb/install/scripts/mysql_install_db
   # Needed to avoid running the next command before the previous file has been released by the permissions change
   sleep 1
   /usr/local/mariadb/install/scripts/mysql_install_db \

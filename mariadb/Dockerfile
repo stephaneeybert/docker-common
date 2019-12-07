@@ -9,7 +9,7 @@ RUN ln -s /usr/local/mariadb/install/my.cnf ~/.my.cnf
 COPY expand-secrets.sh /usr/local/mariadb/
 
 COPY db-health-check.sh /usr/local/mariadb/
-RUN chmod 755 /usr/local/mariadb/db-health-check.sh
+RUN chmod 744 /usr/local/mariadb/db-health-check.sh
 
 #ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
 ENTRYPOINT ["/bin/bash", "install/startup.sh"]

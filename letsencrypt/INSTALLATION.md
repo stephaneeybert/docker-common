@@ -6,11 +6,11 @@ Create some directories
 ```  
 mkdir -p ~/dev/docker/projects/common/letsencrypt/nginx;
 sudo chown -R stephane:stephane ~/dev/docker/projects/common/letsencrypt/
-sudo chmod -R 755 ~/dev/docker/projects/common/letsencrypt;
+sudo chmod -R 744 ~/dev/docker/projects/common/letsencrypt;
 mkdir -p ~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com;
 mkdir -p ~/dev/docker/projects/common/volumes/letsencrypt/nginx
 sudo chown -R stephane:stephane ~/dev/docker/projects/common/volumes;
-sudo chmod -R 755 ~/dev/docker/projects/common/volumes;
+sudo chmod -R 744 ~/dev/docker/projects/common/volumes;
 ```
 
 On the local

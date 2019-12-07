@@ -17,7 +17,7 @@ COPY httpd.logrotate.conf \
 
 RUN mkdir /usr/local/logrotate/
 COPY rotate.sh /usr/local/logrotate/
-RUN chmod 755 /usr/local/logrotate/rotate.sh
+RUN chmod 744 /usr/local/logrotate/rotate.sh
 
 #ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
 ENTRYPOINT ["/bin/bash", "/usr/local/logrotate/rotate.sh"]
