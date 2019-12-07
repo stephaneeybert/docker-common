@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Have the data directory own by the machine hosting the container
 chown -R $HOST_USER_ID /usr/local/mariadb/install/data
 chgrp -R $HOST_GROUP_ID /usr/local/mariadb/install/data
 
