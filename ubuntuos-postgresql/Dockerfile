@@ -20,7 +20,3 @@ RUN ./configure \
   && mkdir /usr/local/postgresql/install/data \
   && chown postgresql /usr/local/postgresql/install/data
 
-USER postgresql
-
-RUN ./install/bin/initdb -D ./install/data
-
