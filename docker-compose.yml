@@ -22,7 +22,7 @@ services:
         window: 10s
     healthcheck:
       test: /usr/local/mariadb/db-health-check.sh
-      interval: 15s
+      interval: 30s
       timeout: 10s
       retries: 3      
   redis:
