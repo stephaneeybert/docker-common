@@ -12,6 +12,7 @@ watch docker stack ps --no-trunc learnintouch
 watch docker stack ps --no-trunc www_thalasoft
 watch docker stack ps --no-trunc user-rest-install
 watch docker stack ps --no-trunc user-rest
+docker service logs -f common_postgresql
 docker service logs -f learnintouch_learnintouch
 docker service logs -f www_thalasoft_thalasoft
 docker service logs -f user-rest-install_user-rest-install
@@ -30,6 +31,7 @@ Build the images
 ```
 cd ~/dev/docker/projects/common;
 cd mariadb; ./build.sh; cd ..;
+cd postgresql; ./build.sh; cd ..;
 cd redis; ./build.sh; cd ..;
 cd logrotate; ./build.sh; cd ..;
 cd fail2ban; ./build.sh; cd ..;
@@ -46,6 +48,7 @@ On the remote
 Create the volume directories
 ```
 mkdir -p ~/dev/docker/projects/common/volumes/database/data;
+mkdir -p ~/dev/docker/projects/common/volumes/database/postgresql/data;
 mkdir -p ~/dev/docker/projects/common/volumes/logs/;
 mkdir -p ~/dev/docker/projects/common/volumes/letsencrypt/;
 ```
@@ -60,6 +63,7 @@ touch ~/dev/docker/projects/common/volumes/logs/letsencrypt.log;
 Pull the images
 ```  
 docker pull thalasoft.com:5000/mariadb:10.3.12;
+docker pull thalasoft.com:5000/postgresql:12.1;
 docker pull thalasoft.com:5000/redis:3.0.7;
 docker pull thalasoft.com:5000/logrotate;
 docker pull thalasoft.com:5000/fail2ban;

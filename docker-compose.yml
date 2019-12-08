@@ -1,5 +1,30 @@
 version: "3.7"
 services:
+  postgresql:
+    image: thalasoft.com:5000/postgresql:12.1
+    networks:
+      common:
+    hostname: postgresql
+    volumes:
+      - "~/dev/docker/projects/common/volumes/database/postgresql/data:/usr/local/postgresql/install/data"
+      - "~/dev/docker/projects/common/volumes/logs:/usr/local/postgresql/install/logs"
+    environment:
+      HOST_USER_ID: ${CURRENT_UID}
+      HOST_GROUP_ID: ${CURRENT_GID}
+    secrets:
+      - DB_ROOT_PASSWORD
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+        window: 10s
+    healthcheck:
+      test: /usr/local/postgresql/db-health-check.sh
+      interval: 30s
+      timeout: 10s
+      retries: 3
   mysql:
     image: thalasoft.com:5000/mariadb:10.3.12
     networks:
