@@ -15,9 +15,6 @@ RUN mkdir /usr/local/postgresql/install/data \
   && mkdir /usr/local/postgresql/install/logs \
   && chown -R postgres /usr/local/postgresql/install/
 
-#COPY postgresql.conf /usr/local/postgresql/install/data
-#COPY pg_hba.conf /usr/local/postgresql/install/data
-
 #ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
 ENTRYPOINT ["/bin/bash", "install/startup.sh"]
 
