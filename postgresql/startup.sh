@@ -53,7 +53,7 @@ else
   rm -f /usr/local/postgresql/install/data/postmaster.pid
 
   sudo -u postgres sh << EOF
-/usr/local/postgresql/install/bin/pg_ctl -D /usr/local/postgresql/install/data -l /usr/local/postgresql/install/logs/postgres.log start
+/usr/local/postgresql/install/bin/pg_ctl -D /usr/local/postgresql/install/data -l /usr/local/postgresql/install/logs/postgres.log restart
 EOF
 fi
 
