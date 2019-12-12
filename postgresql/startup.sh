@@ -25,6 +25,11 @@ if [ ! -f /usr/local/postgresql/install/data/postgresql.conf ]; then
 /usr/local/postgresql/install/bin/initdb --auth-host password -D /usr/local/postgresql/install/data
 EOF
 
+  # Allow all IP addresses (in the 0.0.0.0/0 range) to make remote connections
+  sed -i "s/host    all             all             127.0.0.1\/32/host    all             all             0.0.0.0\/0/" /usr/local/postgresql/install/data/pg_hba.conf
+  # Listen (listening does not mean it accepts connections) to all IP addresses
+  sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/" /usr/local/postgresql/install/data/postgresql.conf
+
   # Start the database server
   sudo -u postgres sh << EOF
 /usr/local/postgresql/install/bin/pg_ctl -D /usr/local/postgresql/install/data -l /usr/local/postgresql/install/logs/postgres.log start
