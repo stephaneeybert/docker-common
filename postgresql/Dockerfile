@@ -25,7 +25,7 @@ ENTRYPOINT ["/bin/bash", "install/startup.sh"]
 # Check that the host port is open: nmap -p 5433 localhost
 # Open a shell in the container: docker exec -it postgresql bash
 # Open a postgresql client: /usr/local/postgresql/install/bin/psql -U root -p
-# View the postgresql log: tail -400f /usr/local/postgresql/install/logs/postgresql.error.log
+# View the postgresql log: tail -400f /usr/local/postgresql/install/logs/postgres.log
 # Connect from the host: cd programs/install/postgresql/; bin/mysql -h localhost -P 5433 --protocol=tcp -u root -p
 # Stop the container: docker stop postgresql
 # Delete the container: docker rm postgresql

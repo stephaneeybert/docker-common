@@ -1,16 +1,13 @@
 #!/bin/bash
 
-# Have the data directory own by the machine hosting the container
-#chown -R $HOST_USER_ID /usr/local/postgresql/install/data
-#chgrp -R $HOST_GROUP_ID /usr/local/postgresql/install/data
+# TODO Try logging in from the host: /usr/local/postgresql/install/bin/psql -h postgresql -p 5432 -U postgres
 
 # Expand the secrets
 export DB_ROOT_PASSWORD={{DOCKER-SECRET:DB_ROOT_PASSWORD}}
 source /usr/local/postgresql/expand-secrets.sh
 
 # Avoid having to provide the user password on the command line
-#export PGPASSWORD=$DB_ROOT_PASSWORD
-#echo "PGPASSWORD: " $PGPASSWORD
+# TODO This env var is not used: export PGPASSWORD=$DB_ROOT_PASSWORD
 
 if [ ! -f /usr/local/postgresql/install/data/postgresql.conf ]; then
   # Do the post installation
