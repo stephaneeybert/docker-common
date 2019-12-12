@@ -38,7 +38,7 @@ EOF
 
   # Configure the root user
   sudo -u postgres sh << EOF
-#/usr/local/postgresql/install/bin/psql -U postgres -c "ALTER USER postgres with encrypted password '$DB_ROOT_PASSWORD';"
+/usr/local/postgresql/install/bin/psql -U postgres -c "ALTER USER postgres WITH PASSWORD '$DB_ROOT_PASSWORD';"
 EOF
 
   # Restart the service to flush the changed user privileges
