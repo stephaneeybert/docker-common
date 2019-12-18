@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# TODO Try logging in from the host: /usr/local/postgresql/install/bin/psql -h postgresql -p 5432 -U postgres
+# TODO /usr/local/postgresql/install/bin/psql -h postgresql -p 5432 -U postgres
 
 # Expand the secrets
 export DB_ROOT_PASSWORD={{DOCKER-SECRET:DB_ROOT_PASSWORD}}
 source /usr/local/postgresql/expand-secrets.sh
-
-# Avoid having to provide the user password on the command line
-# TODO This env var is not used: export PGPASSWORD=$DB_ROOT_PASSWORD
 
 if [ ! -f /usr/local/postgresql/install/data/postgresql.conf ]; then
   # Do the post installation
