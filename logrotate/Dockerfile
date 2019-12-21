@@ -7,6 +7,7 @@ RUN apt-get update \
 WORKDIR /etc/logrotate.d/
 
 COPY httpd.logrotate.conf \
+  redis.logrotate.conf \
   mariadb.logrotate.conf \
   nodejs.logrotate.conf \
   user-rest.logrotate.conf \
