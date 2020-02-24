@@ -19,7 +19,7 @@ An Apache virtual host configuration example
 See https://github.com/wmnnd/nginx-certbot/
 
 The domains list includes the local dev subdomain. The script can be run in production only.
-After it is run, the generated certificates are copied back from the production to the local dev.
+After it is run, the generated certificates must be copied back from the production to the local dev.
 
 The thalasoft.com certificates are generated in the directory
 ```  
