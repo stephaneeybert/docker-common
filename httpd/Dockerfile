@@ -13,14 +13,14 @@ RUN gzip -d httpd-2.4.25.tar.gz \
   && tar -xvf httpd-2.4.25.tar \
   && ln -s httpd-2.4.25 httpd
 COPY apr-1.5.2.tar.gz /usr/local/httpd/srclib/
-COPY apr-util-1.5.4.tar.gz /usr/local/httpd/srclib/
+COPY apr-util-1.5.2.tar.gz /usr/local/httpd/srclib/
 WORKDIR /usr/local/httpd/srclib/
 RUN gzip -d apr-1.5.2.tar.gz \
-  && gzip -d apr-util-1.5.4.tar.gz \
+  && gzip -d apr-util-1.5.2.tar.gz \
   && tar -xvf apr-1.5.2.tar \
-  && tar -xvf apr-util-1.5.4.tar \
+  && tar -xvf apr-util-1.5.2.tar \
   && ln -s apr-1.5.2 apr \
-  && ln -s apr-util-1.5.4 apr-util
+  && ln -s apr-util-1.5.2 apr-util
 
 WORKDIR /usr/local/httpd/
 RUN ./configure \
