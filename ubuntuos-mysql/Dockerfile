@@ -3,11 +3,11 @@ FROM stephaneeybert/ubuntuos:18.04
 
 RUN apt-get install -y libncurses-dev
 
-COPY mysql-8.0.15.tar.gz /usr/local/
+COPY mysql-8.0.19.tar.gz /usr/local/
 WORKDIR /usr/local
-RUN gzip -d mysql-8.0.15.tar.gz \
-  && tar -xvf mysql-8.0.15.tar \
-  && mv mysql-8.0.15 mysql-source
+RUN gzip -d mysql-8.0.19.tar.gz \
+  && tar -xvf mysql-8.0.19.tar \
+  && mv mysql-8.0.19 mysql-source
 
 RUN mkdir mysql
 WORKDIR /usr/local/mysql/
