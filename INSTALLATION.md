@@ -27,7 +27,7 @@ mkdir -p ~/dev/docker/projects/common;
 
 On the local
 
-Create a ~/dev/docker/projects/common/docker-secrets.sh file and run it
+Create a docker-secrets.sh file and run it
 ```
 cd ~/dev/docker/projects/common;
 vi docker-secrets.sh
