@@ -55,7 +55,7 @@ On the remote
 
 Create the volume directories
 ```
-mkdir -p ~/dev/docker/projects/common/volumes/database/data;
+mkdir -p ~/dev/docker/projects/common/volumes/database/mysql/data;
 mkdir -p ~/dev/docker/projects/common/volumes/database/postgresql/data;
 mkdir -p ~/dev/docker/projects/common/volumes/logs/;
 mkdir -p ~/dev/docker/projects/common/volumes/letsencrypt/;
