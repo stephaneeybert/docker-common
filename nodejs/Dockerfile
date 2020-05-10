@@ -9,9 +9,7 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash \
 
 # TODO run the service not as root (and the same for the other services)
 #RUN useradd --user-group --create-home --shell /bin/false stephane
-#ENV HOME=/home/stephane
 #USER stephane
-#WORKDIR $HOME
 
 ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
 
