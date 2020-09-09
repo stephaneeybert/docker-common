@@ -31,7 +31,7 @@ services:
       common:
     hostname: mysql
     volumes:
-      - "~/dev/docker/projects/common/volumes/database/mysql/data:/usr/local/mariadb/install/data"
+      - "~/dev/docker/projects/common/volumes/database/mariadb/data:/usr/local/mariadb/install/data"
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/mariadb/install/logs"
     environment:
       HOST_USER_ID: ${CURRENT_UID}
