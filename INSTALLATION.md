@@ -38,14 +38,17 @@ chmod +x docker-secrets.sh
 Build the images
 ```
 cd ~/dev/docker/projects/common;
+cd ubuntuos; ./build.sh; cd ..;
+cd ubuntuos-mariadb; ./build.sh; cd ..;
 cd mariadb; ./build.sh; cd ..;
+cd ubuntuos-postgresql; ./build.sh; cd ..;
 cd postgresql; ./build.sh; cd ..;
 cd redis; ./build.sh; cd ..;
 cd logrotate; ./build.sh; cd ..;
 cd fail2ban; ./build.sh; cd ..;
 ```
 
-Copy the some files
+Copy some files
 ```
 scp ~/dev/docker/projects/common/docker-compose.yml stephane@thalasoft.com:~/dev/docker/projects/common
 scp ~/dev/docker/projects/common/docker-secrets.sh stephane@thalasoft.com:~/dev/docker/projects/common
