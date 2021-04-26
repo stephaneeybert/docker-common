@@ -1,13 +1,13 @@
-FROM stephaneeybert/ubuntuos:18.04
+FROM stephaneeybert/ubuntuos:20.10
 
 
 RUN apt-get install -y libncurses-dev
 
-COPY mariadb-10.3.12.tar.gz /usr/local/
 WORKDIR /usr/local/
-RUN gzip -d mariadb-10.3.12.tar.gz \
-  && tar -xvf mariadb-10.3.12.tar \
-  && ln -s mariadb-10.3.12 mariadb-source
+COPY mariadb-10.5.9.tar.gz /usr/local/
+RUN gzip -d mariadb-10.5.9.tar.gz \
+  && tar -xvf mariadb-10.5.9.tar \
+  && ln -s mariadb-10.5.9 mariadb-source
 
 RUN mkdir mariadb
 WORKDIR /usr/local/mariadb/

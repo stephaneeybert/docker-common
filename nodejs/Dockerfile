@@ -1,9 +1,7 @@
-FROM stephaneeybert/ubuntuos:18.04
+FROM stephaneeybert/ubuntuos:20.10
 
 RUN apt-get update \
-  && apt-get purge nodejs
-
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash \
+  && apt-get purge nodejs \
   && apt-get install -y nodejs \
   && apt-get install -y npm
 

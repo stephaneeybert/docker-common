@@ -58,10 +58,11 @@ On the remote
 
 Create the volume directories
 ```
-mkdir -p ~/dev/docker/projects/common/volumes/database/mysql/data;
+mkdir -p ~/dev/docker/projects/common/volumes/database/mariadb/data;
 mkdir -p ~/dev/docker/projects/common/volumes/database/postgresql/data;
 mkdir -p ~/dev/docker/projects/common/volumes/logs/;
 mkdir -p ~/dev/docker/projects/common/volumes/letsencrypt/;
+chmod g+s ~/dev/docker/projects/common/volumes
 ```
 
 Create some log files
