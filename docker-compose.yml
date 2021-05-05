@@ -8,6 +8,7 @@ services:
     volumes:
       - "~/dev/docker/projects/common/volumes/database/postgresql/data:/usr/local/postgresql/install/data"
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/postgresql/install/logs"
+    user: "${CURRENT_UID}:${CURRENT_GID}"
     environment:
       HOST_USER_ID: ${CURRENT_UID}
       HOST_GROUP_ID: ${CURRENT_GID}
@@ -33,6 +34,7 @@ services:
     volumes:
       - "~/dev/docker/projects/common/volumes/database/mariadb/data:/usr/local/mariadb/install/data"
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/mariadb/install/logs"
+    user: "${CURRENT_UID}:${CURRENT_GID}"
     environment:
       HOST_USER_ID: ${CURRENT_UID}
       HOST_GROUP_ID: ${CURRENT_GID}
@@ -56,12 +58,14 @@ services:
       common:
     volumes:
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/redis/install/var/logs"
+    user: "${CURRENT_UID}:${CURRENT_GID}"
   logrotate:
     image: thalasoft.com:5000/logrotate
     networks:
       common:
     volumes:
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/logrotate/logs"
+    user: "${CURRENT_UID}:${CURRENT_GID}"
     environment:
       HOST_USER_ID: ${CURRENT_UID}
       HOST_GROUP_ID: ${CURRENT_GID}
