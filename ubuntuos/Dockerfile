@@ -14,6 +14,10 @@ RUN apt-get install -y locales \
   && locale-gen en_GB.UTF-8 \
   && locale-gen fr_FR.UTF-8 \
   && locale-gen sv_SE.UTF-8 \
-  && locale-gen nn_NO.UTF-8
+  && locale-gen nn_NO.UTF-8 \
+  && localedef -i en_GB -f UTF-8 en_GB.UTF-8 \
+  && localedef -i fr_FR -f UTF-8 fr_FR.UTF-8 \
+  && localedef -i sv_SE -f UTF-8 sv_SE.UTF-8 \
+  && localedef -i nn_NO -f UTF-8 nn_NO.UTF-8
 
 ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
