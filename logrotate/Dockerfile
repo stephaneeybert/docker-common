@@ -9,6 +9,7 @@ WORKDIR /etc/logrotate.d/
 COPY httpd.logrotate.conf \
   redis.logrotate.conf \
   mariadb.logrotate.conf \
+  cron.logrotate.conf \
   nodejs.logrotate.conf \
   user-rest.logrotate.conf \
   php_error_log.logrotate.conf \
