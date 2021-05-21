@@ -33,4 +33,5 @@ ENTRYPOINT ["/bin/bash", "/usr/local/logrotate/rotate.sh"]
 # Push the image: docker push thalasoft.com:5000/logrotate
 # Run the container: docker run -d --name logrotate stephaneeybert/logrotate
 # Open a shell in the container: docker exec -it logrotate bash
+# Run a log rotation: /etc/cron.daily/logrotate
 # Viewing the results of the last log rotate: cat /var/lib/logrotate/status
