@@ -17,9 +17,13 @@ COPY httpd.logrotate.conf \
   letsencrypt.logrotate.conf \
   /etc/logrotate.d/
 
+# Files that are writables by group or other are not rotated
+RUN chmod 644 /etc/logrotate.d/*.conf
+
 RUN mkdir /usr/local/logrotate/
 COPY rotate.sh /usr/local/logrotate/
-RUN chmod 744 /usr/local/logrotate/rotate.sh
+RUN chmod 744 /usr/local/logrotate \
+  && chmod 744 /usr/local/logrotate/rotate.sh
 
 #ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
 ENTRYPOINT ["/bin/bash", "/usr/local/logrotate/rotate.sh"]
