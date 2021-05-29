@@ -25,8 +25,7 @@ COPY rotate.sh /usr/local/logrotate/
 RUN chmod 744 /usr/local/logrotate \
   && chmod 744 /usr/local/logrotate/rotate.sh
 
-#ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
-ENTRYPOINT ["/bin/bash", "/usr/local/logrotate/rotate.sh"]
+ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
 
 # Build the container: docker build -t stephaneeybert/logrotate .
 # Rename the image: docker tag stephaneeybert/logrotate thalasoft.com:5000/logrotate
