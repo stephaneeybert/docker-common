@@ -21,11 +21,11 @@ COPY httpd.logrotate.conf \
 RUN chmod 644 /etc/logrotate.d/*.conf
 
 RUN mkdir /usr/local/logrotate/
-COPY rotate.sh /usr/local/logrotate/
+COPY cron.sh /usr/local/logrotate/
 RUN chmod 744 /usr/local/logrotate \
-  && chmod 744 /usr/local/logrotate/rotate.sh
+  && chmod 744 /usr/local/logrotate/cron.sh
 
-ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
+ENTRYPOINT ["/bin/bash", "/usr/local/logrotate/cron.sh"]
 
 # Build the container: docker build -t stephaneeybert/logrotate .
 # Rename the image: docker tag stephaneeybert/logrotate thalasoft.com:5000/logrotate
