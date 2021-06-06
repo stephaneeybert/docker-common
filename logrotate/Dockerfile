@@ -22,8 +22,9 @@ RUN chmod 644 /etc/logrotate.d/*.conf
 
 RUN mkdir /usr/local/logrotate/
 COPY cron.sh /usr/local/logrotate/
-RUN chmod 744 /usr/local/logrotate \
-  && chmod 744 /usr/local/logrotate/cron.sh
+RUN chmod 755 /usr/local/logrotate \
+  && chmod 755 /usr/local/logrotate/cron.sh \
+  && chmod 755 /run
 
 ENTRYPOINT ["/bin/bash", "/usr/local/logrotate/cron.sh"]
 
