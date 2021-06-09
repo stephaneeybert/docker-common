@@ -15,7 +15,8 @@ RUN mkdir install \
   && mkdir install/data \
   && mkdir install/var \
   && mkdir install/etc \ 
-  && mkdir install/tmp
+  && mkdir install/tmp \
+  && chmod a+w -R /usr/local/mariadb/install/tmp
 
 WORKDIR /usr/local/mariadb/
 RUN cmake -- -j4 \

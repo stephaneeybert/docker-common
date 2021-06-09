@@ -15,7 +15,8 @@ RUN mkdir install \
   && mkdir install/data \
   && mkdir install/var \
   && mkdir install/etc \ 
-  && mkdir install/tmp
+  && mkdir install/tmp \
+  && chmod a+w -R /usr/local/mysql/install/tmp
 
 WORKDIR /usr/local/mysql/
 RUN cmake -- -j4 \
