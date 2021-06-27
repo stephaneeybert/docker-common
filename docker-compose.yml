@@ -1,7 +1,7 @@
 version: "3.7"
 services:
 #  postgresql:
-#    image: thalasoft.com:5000/postgresql:12.1
+#    image: europasprak.com:5000/postgresql:12.1
 #    networks:
 #      common:
 #    hostname: postgresql
@@ -27,7 +27,7 @@ services:
 #      timeout: 10s
 #      retries: 3
   mysql:
-    image: thalasoft.com:5000/mariadb:10.5.9
+    image: europasprak.com:5000/mariadb:10.5.9
     networks:
       common:
     hostname: mysql
@@ -53,7 +53,7 @@ services:
       timeout: 10s
       retries: 3      
   redis:
-    image: thalasoft.com:5000/redis:3.0.7
+    image: europasprak.com:5000/redis:3.0.7
     networks:
       common:
     hostname: redis
@@ -61,7 +61,7 @@ services:
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/redis/install/var/logs"
     user: "${CURRENT_UID}:${CURRENT_GID}"
   logrotate:
-    image: thalasoft.com:5000/logrotate
+    image: europasprak.com:5000/logrotate
     networks:
       common:
     volumes:
@@ -71,7 +71,7 @@ services:
       HOST_USER_ID: ${CURRENT_UID}
       HOST_GROUP_ID: ${CURRENT_GID}
 networks:
-  common:  
+  common:
     name: common
 secrets:
   DB_ROOT_PASSWORD:
