@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.9"
 services:
 #  postgresql:
 #    image: europasprak.com:5000/postgresql:12.1
@@ -20,7 +20,7 @@ services:
 #        condition: any
 #        delay: 5s
 #        max_attempts: 3
-#        window: 10s
+#        window: 30s
 #    healthcheck:
 #      test: /usr/local/postgresql/db-health-check.sh
 #      interval: 30s
@@ -39,19 +39,19 @@ services:
       HOST_USER_ID: ${CURRENT_UID}
       HOST_GROUP_ID: ${CURRENT_GID}
     secrets:
-      - DB_ROOT_PASSWORD      
+      - DB_ROOT_PASSWORD
     deploy:
       replicas: 1
       restart_policy:
         condition: any
         delay: 5s
         max_attempts: 3
-        window: 10s
+        window: 30s
     healthcheck:
       test: /usr/local/mariadb/db-health-check.sh
       interval: 30s
       timeout: 10s
-      retries: 3      
+      retries: 3
   redis:
     image: europasprak.com:5000/redis:3.0.7
     networks:
@@ -73,6 +73,7 @@ services:
 networks:
   common:
     name: common
+    driver: overlay
 secrets:
   DB_ROOT_PASSWORD:
     external: true  

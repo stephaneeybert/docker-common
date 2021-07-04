@@ -12,6 +12,7 @@ watch docker stack ps --no-trunc learnintouch
 watch docker stack ps --no-trunc www_thalasoft
 watch docker stack ps --no-trunc user-rest-install
 watch docker stack ps --no-trunc user-rest
+docker service logs -f common_traefik
 docker service logs -f common_postgresql
 docker service logs -f learnintouch_learnintouch
 docker service logs -f www_thalasoft_thalasoft
@@ -58,6 +59,7 @@ On the remote
 
 Create the volume directories
 ```
+mkdir -p ~/dev/docker/projects/common/volumes/traefik/rules;
 mkdir -p ~/dev/docker/projects/common/volumes/database/mariadb/data;
 mkdir -p ~/dev/docker/projects/common/volumes/database/postgresql/data;
 mkdir -p ~/dev/docker/projects/common/volumes/logs/;
@@ -67,6 +69,8 @@ chmod g+s ~/dev/docker/projects/common/volumes
 
 Create some log files
 ```
+touch ~/dev/docker/projects/common/volumes/logs/traefik.service.log;
+touch ~/dev/docker/projects/common/volumes/logs/traefik.access.log;
 touch ~/dev/docker/projects/common/volumes/logs/redis_6379.log;
 touch ~/dev/docker/projects/common/volumes/logs/nodejs.log;
 touch ~/dev/docker/projects/common/volumes/logs/letsencrypt.log;
@@ -89,7 +93,7 @@ cd ~/dev/docker/projects/common;
 
 Read and follow all the INSTALLATION.md files of the project
 
-Start the services
+Starting the services
 ```  
 cd ~/dev/docker/projects/common
 docker stack deploy --compose-file docker-compose.yml common
@@ -98,5 +102,16 @@ docker stack deploy --compose-file docker-compose.yml common
 Stopping the common services
 ```  
 docker stack rm common
+```
+
+Starting the Traefik load balancer
+```  
+cd ~/dev/docker/projects/common
+docker stack deploy --compose-file docker-compose-traefik.yml traefik
+```
+
+Stopping the common Traefik load balancer
+```  
+docker stack rm traefik
 ```
 
