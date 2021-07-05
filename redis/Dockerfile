@@ -15,6 +15,7 @@ RUN gzip -d redis-3.0.7.tar.gz \
 WORKDIR /usr/local/redis
 RUN mkdir -p install/etc \
   && mkdir -p install/var/6379 \
+  && chmod a+w install/var/6379 \
   && make
 
 COPY 6379.conf install/etc

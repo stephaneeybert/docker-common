@@ -50,6 +50,6 @@ services:
       - "~/dev/docker/projects/common/volumes/logs/traefik.access.log:/var/log/access.log"
 networks:
   common:
-    driver: overlay
     name: common
+    driver: overlay
     external: true
