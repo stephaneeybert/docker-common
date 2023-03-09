@@ -1,4 +1,4 @@
-FROM stephaneeybert/ubuntuos:20.10
+FROM stephaneeybert/ubuntuos:22.10
 
 
 RUN apt-get install -y libreadline-dev

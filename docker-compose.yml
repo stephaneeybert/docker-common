@@ -53,7 +53,7 @@ services:
       timeout: 10s
       retries: 3
   redis:
-    image: europasprak.com:5000/redis:3.0.7
+    image: europasprak.com:5000/redis:7.0.8
     networks:
       common:
     hostname: redis

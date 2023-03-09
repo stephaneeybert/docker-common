@@ -1,4 +1,4 @@
-FROM ubuntu:20.10
+FROM ubuntu:22.10
 
 RUN apt-get update \
   && apt-get install -y build-essential autoconf gcc cmake pkg-config apt-file libbz2-dev \

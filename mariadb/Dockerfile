@@ -1,4 +1,4 @@
-FROM stephaneeybert/ubuntuos-mariadb:10.5.9
+FROM stephaneeybert/ubuntuos-mariadb:10.5.19
 
 
 COPY startup.sh install/startup.sh

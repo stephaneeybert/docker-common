@@ -1,14 +1,14 @@
-FROM stephaneeybert/ubuntuos:20.10
+FROM stephaneeybert/ubuntuos:22.10
 
 
-RUN apt-get update \
+RUN apt-get update -y \
   && apt-get install -y libncurses-dev libboost-all-dev
 
-COPY mysql-8.0.25.tar.gz /usr/local/
+COPY mysql-8.0.32.tar.gz /usr/local/
 WORKDIR /usr/local
-RUN gzip -d mysql-8.0.25.tar.gz \
-  && tar -xvf mysql-8.0.25.tar \
-  && mv mysql-8.0.25 mysql-source
+RUN gzip -d mysql-8.0.32.tar.gz \
+  && tar -xvf mysql-8.0.32.tar \
+  && mv mysql-8.0.32 mysql-source
 
 RUN mkdir mysql
 WORKDIR /usr/local/mysql/
@@ -20,7 +20,7 @@ RUN mkdir install \
   && chmod a+w -R /usr/local/mysql/install/tmp
 
 WORKDIR /usr/local/mysql/
-RUN cmake -- -j4 \
+RUN cmake \
   -DCMAKE_INSTALL_PREFIX=/usr/local/mysql/install \
   -DWITH_INNOBASE_STORAGE_ENGINE=1 \
   -DWITHOUT_TOKUDB=1 \
