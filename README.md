@@ -104,14 +104,3 @@ Stopping the common services
 docker stack rm common
 ```
 
-Starting the Traefik load balancer
-```  
-cd ~/dev/docker/projects/common
-docker stack deploy --compose-file docker-compose-traefik.yml traefik
-```
-
-Stopping the common Traefik load balancer
-```  
-docker stack rm traefik
-```
-
